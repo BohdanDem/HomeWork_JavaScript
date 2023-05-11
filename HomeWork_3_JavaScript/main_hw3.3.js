@@ -36,7 +36,7 @@ for (let i = 0; i < products.length; i++) {
     let product = products[i]
     document.write(`<div class="product-card">
         <h3 class="product-title">${product.title}. Price - ${product.price} UAH</h3>
-        <img src="${product.image}" alt="" width="150" class="product-image">
+        <img src="${product.image}" alt="${product.title}" width="150" class="product-image">
         </div>`)
 }
 
