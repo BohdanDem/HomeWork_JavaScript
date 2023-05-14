@@ -31,3 +31,25 @@ let citiesWithId = [
     {user_id: 4, country: 'USA', city: 'Miami'}
 ];
 
+let usersWithCities = []
+
+for (const usersWithIdElement of usersWithId) {
+    for (const citiesWithIdElement of citiesWithId) {
+        if (citiesWithIdElement.user_id === usersWithIdElement.id) {
+            usersWithIdElement.addres = citiesWithIdElement
+        }
+    }
+    usersWithCities.push(usersWithIdElement)
+}
+
+console.log(usersWithCities)
+
+
+
+
+
+
+
+
+
+
