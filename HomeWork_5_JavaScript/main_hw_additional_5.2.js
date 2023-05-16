@@ -153,19 +153,29 @@ console.log('9----------------9')
 
 let array2 = [1,0,6,0,3]
 
+// const changeArray = (array) => {
+//     let newArr = []
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] !== 0) {
+//             newArr.push(array[i])
+//         }
+//     }
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] === 0) {
+//             newArr.push(array[i])
+//         }
+//     }
+//     return newArr
+// }
+
 const changeArray = (array) => {
-    let newArr = []
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] !== 0) {
-            newArr.push(array[i])
-        }
+    const start = []
+    const end = []
+
+    for (const numb of array) {
+        numb ? start.push(numb) : end.push(numb)
     }
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === 0) {
-            newArr.push(array[i])
-        }
-    }
-    return newArr
+    return [...start, ...end]
 }
 
 console.log(array2)
