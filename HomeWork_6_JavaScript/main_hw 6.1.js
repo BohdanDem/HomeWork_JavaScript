@@ -134,6 +134,20 @@ console.log(changedCourseArray)
 
 // описати колоду карт (від 6 до туза без джокерів)
 
+// const deck = {
+//     suits: ['spade', 'diamond','heart', 'clubs'],
+//     values: ['6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'],
+//     colors: ['black', 'red'],
+// };
+// let cards = [];
+// function initializeDeck() {
+//     for (let suit of deck.suits) {
+//         for (let value of deck.values) {
+//             let color = (suit === 'spade' || suit === 'clubs')? 'black': 'red'
+//             cards.push({value: value, suit: suit, color: color});
+//         }}}
+// initializeDeck();
+
 console.log('11----------------11')
 
 const cardSuits = [
