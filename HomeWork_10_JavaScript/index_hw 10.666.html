@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let visit = JSON.parse(localStorage.getItem('session'))
+    for (const visitElement of visit) {
+        let format = new Date(visitElement)
+        let time = `${format.getHours()}:${format.getMinutes()}:${format.getSeconds()}`
+        let data = `${format.getFullYear()}/${format.getMonth() + 1}/${format.getDate()}`
+
+        let div = document.createElement('div')
+        div.innerText = `Data: ${data} Time: ${time}`
+        document.body.append(div)
+    }
+
+</script>
+</body>
+</html>
