@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        let userUrl = new URL(location.href)
+        let id = userUrl.searchParams.get('id')
+
+        fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+            .then(response => response.json())
+            .then(json => {
+                let user = document.createElement('div')
+                user.classList.add('user')
+                user.style.marginBottom = '30px'
+                user.style.background = 'lightcyan'
+
+                let id = document.createElement('div')
+                id.classList.add('id')
+                id.innerText = `Id - ${json.id}`
+
+                let name = document.createElement('div')
+                name.classList.add('name')
+                name.innerText = `Name - ${json.name}`
+
+                let username = document.createElement('div')
+                username.classList.add('username')
+                username.innerText = `Username - ${json.username}`
+
+                let email = document.createElement('div')
+                email.classList.add('email')
+                email.innerText = `Email - ${json.email}`
+
+                let address = document.createElement('div')
+                address.classList.add('address')
+                address.innerText = 'Address:'
+                address.style.marginLeft = '10px'
+
+                let street = document.createElement('div')
+                street.classList.add('street')
+                street.innerText = `Street - ${json.address.street}`
+
+                let suite = document.createElement('div')
+                suite.classList.add('suite')
+                suite.innerText = `Suite - ${json.address.suite}`
+
+                let city = document.createElement('div')
+                city.classList.add('city')
+                city.innerText = `City - ${json.address.city}`
+
+                let zipcode = document.createElement('div')
+                zipcode.classList.add('zipcode')
+                zipcode.innerText = `Zipcode - ${json.address.zipcode}`
+
+                let geo = document.createElement('div')
+                geo.classList.add('geo')
+                geo.innerText = 'Geo:'
+                geo.style.marginLeft = '10px'
+
+                let lat = document.createElement('div')
+                lat.classList.add('lat')
+                lat.innerText = `Lat - ${json.address.geo.lat}`
+
+                let lng = document.createElement('div')
+                lng.classList.add('lng')
+                lng.innerText = `Lng - ${json.address.geo.lng}`
+
+                let phone = document.createElement('div')
+                phone.classList.add('phone')
+                phone.innerText = `Phone - ${json.phone}`
+
+                let website = document.createElement('div')
+                website.classList.add('website')
+                website.innerText = `Website - ${json.website}`
+
+                let company = document.createElement('div')
+                company.classList.add('company')
+                company.innerText = 'Company:'
+                company.style.marginLeft = '10px'
+
+                let companyName = document.createElement('div')
+                companyName.classList.add('company-name')
+                companyName.innerText = `Name - ${json.company.name}`
+
+                let catchPhrase = document.createElement('div')
+                catchPhrase.classList.add('catch-phrase')
+                catchPhrase.innerText = `CatchPhrase - ${json.company.catchPhrase}`
+
+                let bs = document.createElement('div')
+                bs.classList.add('bs')
+                bs.innerText = `bs - ${json.company.bs}`
+
+                company.append(companyName, catchPhrase, bs)
+                geo.append(lat, lng)
+                address.append(street, suite, city, zipcode, geo)
+                user.append(id, name, username, email, address, phone, website, company)
+                document.body.appendChild(user)
+            })
+
+    </script>
+
+</body>
+</html>
