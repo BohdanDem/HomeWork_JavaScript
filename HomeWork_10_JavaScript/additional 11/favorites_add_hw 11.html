@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorite page</title>
+    <style>
+        #users{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<h2>Favorite users</h2>
+<div id="users"></div>
+<a href="index_add_hw%2011.html">Go to home page</a>
+<script>
+
+    let users = document.getElementById('users')
+
+    let favorites = JSON.parse(localStorage.getItem('favorites'))
+    favorites.forEach(user => {
+        let div = document.createElement('div')
+        div.innerHTML = `<b>Name</b> - ${user.name}, <b>age</b> - ${user.age}, <b>status</b> - ${user.status}`
+        users.appendChild(div)
+    })
+
+</script>
+</body>
+</html>
