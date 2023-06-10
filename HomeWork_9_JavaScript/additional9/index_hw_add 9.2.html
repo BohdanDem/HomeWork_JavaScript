@@ -49,38 +49,46 @@
     // за допомоги рекурсії перебрати структуру сторінки. зробити об'єкт, всі заголовки покласти в (масив) характеристику headings,всі
     // параграфи покласти в характеристику (масив) paragraphs
     // Your awesome code here.....
+    let page = {}
     let headings = []
     let paragraphs = []
-    // function collector(htmlElement) {
-    //     if (htmlElement.tagName === 'p') {
-    //         paragraphs.push(htmlElement)
-    //     }
-    //     let children = htmlElement.children
-    //     if (htmlElement.children !== 0) {
-    //         for (const child of children) {
-    //             collector(child)
-    //         }
-    //     }
-    // }
 
     function collector(htmlElement) {
+        if (htmlElement.tagName.toLowerCase() === 'p') {
+            paragraphs.push(htmlElement.innerText)
+        }
+        else if (htmlElement.tagName.toLowerCase() === 'h1' || htmlElement.tagName.toLowerCase() === 'h2') {
+            headings.push(htmlElement.innerText)
+        }
         let children = htmlElement.children
-        if (children.length !== 0) {
+        if (htmlElement.children !== 0) {
             for (const child of children) {
                 collector(child)
-                if (child.tagName.toLowerCase() === 'p') {
-                    paragraphs.push(child.innerText)
-                }
-                else if (child.tagName.toLowerCase() === 'h2') {
-                    headings.push(child.innerText)
-                }
             }
         }
     }
 
+    // function collector(htmlElement) {
+    //     let children = htmlElement.children
+    //     if (children.length !== 0) {
+    //         for (const child of children) {
+    //             collector(child)
+    //             if (child.tagName.toLowerCase() === 'p') {
+    //                 paragraphs.push(child.innerText)
+    //             }
+    //             else if (child.tagName.toLowerCase() === 'h2') {
+    //                 headings.push(child.innerText)
+    //             }
+    //         }
+    //     }
+    // }
+
     collector(document.body)
-    console.log(headings);
-    console.log(paragraphs);
+
+    page.headings = headings
+    page.paragraphs = paragraphs
+
+    console.log(page);
 
 </script>
 </body>
