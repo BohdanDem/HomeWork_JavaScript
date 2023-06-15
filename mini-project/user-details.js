@@ -4,12 +4,10 @@ let id = userUrl.searchParams.get('userId')
 fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then(response => response.json())
     .then(person => {
-        let user = document.createElement('div')
-        user.classList.add('user')
+        let user = document.getElementById('user-details')
 
         const ul = document.createElement('ul')
         userBuild(person, ul)
-        user.appendChild(ul)
 
         let btn = document.createElement('button')
         btn.classList.add('post-of-current-user')
@@ -21,11 +19,15 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
                 : postTitleWrap.style.display = 'none'
         }
 
+        let postTitleWrapFlex = document.createElement('div')
+        postTitleWrapFlex.classList.add('post-title-wrap-flex')
+
         let postTitleWrap = document.createElement('div')
         postTitleWrap.classList.add('post-title-wrap')
         postTitleWrap.style.display = 'none'
 
-        document.body.append(user, btn, postTitleWrap)
+        postTitleWrap.appendChild(postTitleWrapFlex)
+        user.append(ul, btn, postTitleWrap)
 
         fetch(`https://jsonplaceholder.typicode.com/posts?userId=${person.id}`)
             .then((response) => response.json())
@@ -35,10 +37,10 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
                     div.classList.add('post')
 
                     let postTitle = document.createElement('div')
-                    postTitle.innerHTML = `${post.title}`
+                    postTitle.innerHTML = `<b>Title</b> - ${post.title}`
 
                     let btn = document.createElement('button')
-                    btn.classList.add('post-details')
+                    btn.classList.add('post-btn')
                     btn.innerText = `Post Details`
 
                     btn.onclick = () => {
@@ -46,7 +48,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
                     }
 
                     div.append(postTitle, btn)
-                    postTitleWrap.appendChild(div)
+                    postTitleWrapFlex.appendChild(div)
                 }
         });
     })

@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    font-size: 18px;
+    background-color: white;
+}
+
+/*index page=======================================*/
+section {
+    width: 1350px;
+    margin: 0 auto;
+    background-color: lightcyan;
+}
+
+.title {
+    font-size: 26px;
+    text-align: center;
+    padding-top: 25px;
+    font-weight: bold;
+}
+
+#user-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+
+.user {
+    box-sizing: border-box;
+    width: 35%;
+    background-color: honeydew;
+    margin-top: 20px;
+    padding: 20px 60px;
+}
+
+.button {
+    display: block;
+    margin: 10px 0 0 20px;
+    font-size: 16px;
+    background-color: lightgray;
+    padding: 7px 25px;
+    border: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: gray;
+    color: white;
+}
+
+/*user-details=======================================*/
+
+#user-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-details > ul {
+    width: 450px;
+    margin: 20px auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: honeydew;
+}
+
+.post-of-current-user {
+    width: 70%;
+    font-size: 24px;
+    padding: 10px;
+    margin: 15px 0;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+}
+
+.post-of-current-user:hover {
+    background-color: gray;
+    color: white;
+}
+
+.post-title-wrap-flex {
+    width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.post {
+    box-sizing: border-box;
+    width: 18%;
+    height: 150px;
+    background-color: #a0eefe;
+    margin-top: 20px;
+    padding: 10px 10px;
+    position: relative;
+}
+
+.post-btn {
+    font-size: 16px;
+    padding: 7px 15px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 12px;
+    left: 30px;
+}
+
+.post-btn:hover {
+    background-color: gray;
+    color: white;
+}
+
+/*post-details=======================================*/
+
+#post-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#post-description {
+    box-sizing: border-box;
+    width: 60%;
+    background-color: honeydew;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+#comment-details {
+    width: 100%;
+}
+
+#comment-description {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 0 35px;
+}
+
+.comment {
+    box-sizing: border-box;
+    width: 23%;
+    background-color: #a0eefe;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
