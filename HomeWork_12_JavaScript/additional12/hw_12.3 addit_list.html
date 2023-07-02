@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Products</title>
+    <style>
+        .product {
+            box-sizing: border-box;
+            width: 300px;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 24px;
+            background-color: lightcyan;
+        }
+
+        .product img {
+            width: 200px;
+        }
+
+        .product button {
+            font-size: 16px;
+            padding: 5px 15px;
+        }
+
+        .button {
+            font-size: 16px;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let products = JSON.parse(localStorage.getItem('productsPage'))
+    for (const product of products) {
+        console.log(product);
+        let div = document.createElement('div')
+        div.classList.add('product')
+        div.innerHTML = `${product.ProductName} - ${product.ProductPrice} UAH <br> Quantity - ${product.ProductCount} <br>`
+
+        let img = document.createElement('img')
+        img.src = product.ProductImage
+
+        let button = document.createElement('button')
+        button.innerText = 'Delete product'
+        
+        button.onclick = function () {
+            let productsPage = JSON.parse(localStorage.getItem('productsPage'));
+            console.log(productsPage);
+            let products = productsPage.filter((item) => item.ProductName !== product.ProductName
+                || item.ProductPrice !== product.ProductPrice
+                || item.ProductCount !== product.ProductCount
+            )
+            localStorage.setItem('productsPage', JSON.stringify(products));
+            location.href = 'hw_12.3 addit_list.html'
+        }
+
+        div.append(img, button)
+        document.body.append(div)
+    }
+    let button = document.createElement('button')
+    button.classList.add('button')
+    button.innerText = 'Delete ALL products'
+
+    button.onclick = function () {
+        let productsPage = JSON.parse(localStorage.getItem('productsPage'));
+        productsPage.splice(0)
+        localStorage.setItem('productsPage', JSON.stringify(productsPage));
+        location.href = 'hw_12.3 addit_list.html'
+    }
+
+    document.body.append(button)
+</script>
+</body>
+</html>
